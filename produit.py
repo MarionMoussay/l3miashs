@@ -32,15 +32,11 @@ class Produit:
         chaine += "Prix de base : {:.2f}\n".format(self.prixBase)
         chaine += "Prix actuel : {:.2f}\n".format(self.calculerPrixActuel())
         return chaine
-        
-class ProduitPerissable(Produit):
-    def __init__(self,  numEAN, identifiant, nom, prixBase, dateFabrication, dureeConso):
-		self.numEAN = numEAN
-        self.id = identifiant
-        self.nom = nom
-        self.prixBase = prixBase
-        self.dateFab = datetime.strptime(dateFabrication, "%d/%m/%Y")
-        self.dureeConso = timedelta(int(dureeConso))
+
+
+def __init__(self, numEAN, id, prixBase, dateFab, dureeConso):
+    Produit.__init__(self, numEAN, id, prixBase, dateFab)
+    self.dureeConso = datetime.timedelta(days=dureeConso)
     
     def enPromo(self):
         return (datetime.now()-self.dateFab) >= self.dureeConso*0.75
