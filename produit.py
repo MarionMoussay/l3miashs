@@ -34,7 +34,11 @@ class Produit:
         return chaine
         
 class ProduitPerissable(Produit):
-    Produit.__init__(self,  numEAN, identifiant, nom, prixBase, dateFabrication, dureeConso):
+    def __init__(self,  numEAN, identifiant, nom, prixBase, dateFabrication, dureeConso):
+		self.numEAN = numEAN
+        self.id = identifiant
+        self.nom = nom
+        self.prixBase = prixBase
         self.dateFab = datetime.strptime(dateFabrication, "%d/%m/%Y")
         self.dureeConso = timedelta(int(dureeConso))
     
